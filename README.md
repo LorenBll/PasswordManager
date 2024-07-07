@@ -67,4 +67,4 @@ This program includes the following features:
 
 ## Author
 
-- [LorenBll](https://github.com/LorenBll)
+- [LorenBll](https://github.com/LorenBll) .
