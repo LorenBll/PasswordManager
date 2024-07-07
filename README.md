@@ -30,7 +30,7 @@ This program was developed using the following technologies:
 
 To run the program, ensure Python is installed on your machine. Download Python from the official website [here](https://www.python.org/downloads/).
 
-This program was developed using Python 3.9.5 but should work with any version of Python 3.9.x. Check your Python version by running the following command in your terminal:
+This program was developed using Python 3.10.11 but should work with any version of Python 3.10.x. Check your Python version by running the following command in your terminal:
 ```bash
 python --version
 ```
