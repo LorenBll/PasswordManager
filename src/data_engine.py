@@ -454,17 +454,23 @@ def search_entries_bySimilarValue_inInsertedField ():
             
     #. ricerca e visualizzazione delle entry
     searchResult = []
-    for entry in data:
-        if entry in searchResult:
+    for toConfront in data:
+        if toConfront in searchResult:
             continue
-        for entry2 in data:
-            if entry2 in searchResult:
+        
+        isFound = False
+        for confronted in data:
+            if toConfront["ID"] == confronted["ID"]:
                 continue
-            if entry["ID"] == entry2["ID"]:
+            if confronted in searchResult:
                 continue
-            if isSimilar(entry[toSearchField],entry2[toSearchField]):
-                searchResult.append(entry)
-                searchResult.append(entry2)
+            
+            if isSimilar(toConfront[toSearchField],confronted[toSearchField]):
+                isFound = True
+                searchResult.append(confronted)
+                
+        if isFound:
+            searchResult.append(toConfront)
                 
     return searchResult
 
@@ -486,19 +492,25 @@ def search_entry_bySameValue_inInsertedField ():
         
     #. ricerca e visualizzazione delle entry
     searchResult = []
-    for entry in data:
-        if entry in searchResult:
+    for toConfront in data:
+        if toConfront in searchResult:
             continue
-        for entry2 in data:
-            if entry2 in searchResult:
+        
+        isFound = False
+        for confronted in data:
+            if toConfront["ID"] == confronted["ID"]:
                 continue
-            if entry["ID"] == entry2["ID"]:
+            if confronted in searchResult:
                 continue
-            if entry[inputBuffer] == entry2[inputBuffer]:
-                searchResult.append(entry)
-                searchResult.append(entry2)
+            
+            if toConfront[inputBuffer] == confronted[inputBuffer]:
+                isFound = True
+                searchResult.append(confronted)
                 
-    return searchResult    
+        if isFound:
+            searchResult.append(toConfront)
+                
+    return searchResult   
 
 def search_entry_byID ():
     # funzione che cerca delle entry per ID
